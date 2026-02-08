@@ -118,3 +118,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+# default user model 
+
+AUTH_USER_MODEL = 'accounts.User'
+
+# Configuration de la messagerie pour l'envoi d'e-mails de vérification et de réinitialisation de mot de passe
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'  # Utiliser le serveur SMTP de Gmail
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER ='ivanbayigabogmis0@gmail.com'

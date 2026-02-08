@@ -1,0 +1,178 @@
+# Auth Service — Centralized Authentication Module
+
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![Django](https://img.shields.io/badge/Django-REST-green)
+![JWT](https://img.shields.io/badge/Auth-JWT-orange)
+![PostgreSQL](https://img.shields.io/badge/DB-PostgreSQL-blue)
+
+##  About the Project
+
+**Auth Service** is a production-ready, reusable authentication service built with **Django REST Framework** and **JWT (SimpleJWT)**.
+
+This module is designed as a **centralized authentication system** that can be used across multiple applications such as:
+- Web apps (React)
+- Mobile apps (Flutter)
+- Other backend services (microservices)
+
+It follows clean architecture principles with a modular structure, role-based access control, and scalable design.
+
+---
+
+##  Key Features
+
+- ✅ User Registration (`/register`)
+- ✅ Login with JWT (`/login`)
+- ✅ Refresh Token (`/refresh`)
+- ✅ Logout (`/logout`)
+- ✅ Get current user profile (`/me`)
+- ✅ Custom User Model
+- ✅ Role-Based Access Control:
+  - `admin`
+  - `moderator`
+  - `user`
+- ✅ Ready for PostgreSQL
+- ✅ Clean and scalable project structure
+- ✅ API-friendly for frontend and mobile apps
+
+---
+
+## 🏗️ Project Architecture
+
+auth_service/
+│
+├── config/
+│ ├── settings.py
+│ ├── urls.py
+│ └── asgi.py
+│
+├── accounts/
+│ ├── models.py
+│ ├── serializers.py
+│ ├── views.py
+│ ├── services.py
+│ ├── permissions.py
+│ ├── urls.py
+│ └── apps.py
+│
+├── logs/
+│ └── auth_logs.txt
+│
+├── manage.py
+└── requirements.txt
+
+
+---
+
+## 🛠️ Tech Stack
+
+- **Python 3.10+**
+- **Django**
+- **Django REST Framework**
+- **SimpleJWT**
+- **PostgreSQL**
+- **drf-yasg (Swagger) — optional**
+
+---
+
+## 🔌 API Endpoints
+
+| Method | Endpoint | Description |
+|--------|-----------------------|----------------|
+| POST | `/api/auth/register/` | Create new account |
+| POST | `/api/auth/login/` | Login and get JWT |
+| POST | `/api/auth/refresh/` | Refresh access token |
+| POST | `/api/auth/logout/` | Logout user |
+| POST | `/api/auth/reset-password/` | Reset password |
+| GET | `/api/auth/me/` | Get current user |
+
+---
+
+## ⚙️ Installation
+
+### 1️⃣ Clone the repository
+
+```bash
+git clone https://github.com/ivan-14-dev/auth-service.git
+cd auth-service
+
+2️⃣ Create virtual environment
+python -m venv venv
+source venv/bin/activate   # Mac/Linux
+venv\Scripts\activate      # Windows
+
+3️⃣ Install dependencies
+pip install -r requirements.txt
+
+4️⃣ Configure PostgreSQL (settings.py)
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": "auth_db",
+        "USER": "postgres",
+        "PASSWORD": "your_password",
+        "HOST": "localhost",
+        "PORT": "5432",
+    }
+}
+
+5️⃣ Run migrations
+python manage.py makemigrations
+python manage.py migrate
+
+6️⃣ Start the server
+python manage.py runserver
+
+
+API will be available at:
+http://127.0.0.1:8000/api/auth/
+
+🔐 JWT Configuration (Example)
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+}
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+}
+
+🎯 Objectives
+
+By building this project, you learn:
+
+How to design a professional REST API
+
+JWT authentication and security concepts
+
+Custom user model in Django
+
+Clean project structure and best practices
+
+Role-based permissions
+
+Backend architecture for scalable applications
+
+📈 Roadmap (Future Improvements)
+
+ Email verification on signup
+
+ Password reset via email
+
+ OAuth login (Google, GitHub)
+
+ Docker support
+
+ Deployment to Render / Railway / AWS
+
+👨‍💻 Author
+
+Ivan BAYIGA BOGMIS (BerSa)
+Software Engineering
+Python • Django • React • Flutter • C++ • Java
+
+📍 Cameroon
+
